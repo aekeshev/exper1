@@ -23,11 +23,12 @@ using namespace std;
 
 class MyServer : public TCPserver{
 public:
-	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){;};
+	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w=new World;};
 protected:
 	string myResponse (string input);
 
-	World w;
+	World *w; //Zeiger
+
 
 };
 
@@ -44,36 +45,52 @@ string MyServer::myResponse (string input){
 	string res;
 
 	if ( input.compare(0,5,"start") == 0){
-		return string ("ready");
-
+		if(w==NULL){
+			w=new World;
+		}else{
+			delete w;
+			w=new World;
+		}
+		return string ("Starten");
 	}
-	else if ( input.compare(0,5,"shoot") == 0){
+
+
+
+
+	if ( input.compare(0,5,"shoot") == 0){
 		// shoot(<int>,<int>), z.B: shoot(3,7)
 		sscanf(input.c_str() ,"shoot(%i,%i)", &x,&y);
 
-		if(x<1){
+		if((x<1)||(y<1)){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
-			}
+		}
+		if((x>10)||(y>10)){
+			res = string("ERROR. Falsche Parametereingabe. ");
+			return res;
+				}
 		else{
 
-		c = w.shoot(x,y);
-		 cout << "result: " << c << endl;
+			c = w->shoot(x,y);
+			cout << "Ergebnis: " << c << endl;
 
-		res =  c;
-		return res;
+			res =  c+'0';
+
+			return res;
 		}
 	}
-	else if (input.compare(0,5,"spiel") == 0){
-		w.printBoard();
-		res = string ("OK");
-		return res;
-	}
 
-	else{
-		return string ("ERROR");
-	}
+		if (input.compare(0,5,"spiel") == 0){
+					w->printBoard();
+					res = string ("Schuss");
+					return res;
+		}
 
-}
+
+		return string ("Error");
+
+
+
+	}
 
 
