@@ -65,7 +65,7 @@ string MyServer::myResponse (string input){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
 		}
-		if((x>10)||(y>10)){
+		else if((x>10)||(y>10)){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
 				}
