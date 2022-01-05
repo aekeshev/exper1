@@ -23,11 +23,11 @@ using namespace std;
 
 class MyServer : public TCPserver{
 public:
-	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w = new World;};
+	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w = new World;};//neue adresse zuweisen
 protected:
 	string myResponse (string input);
 
-	World *w; //Zeiger
+	World *w; //Zeiger auf die Instanz von world "adresse"
 
 
 };
@@ -66,7 +66,7 @@ string MyServer::myResponse (string input){
 		if((x>10)||(y>10)){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
-				}
+		}
 		else{
 
 			c = w->shoot(x,y);
@@ -78,17 +78,16 @@ string MyServer::myResponse (string input){
 		}
 	}
 
-		if (input.compare(0,5,"spiel") == 0){
+	if (input.compare(0,5,"spiel") == 0){
 					w->printBoard();
 					res = string ("Schuss");
 					return res;
-		}
-
-
-		return string ("Error");
-
-
-
 	}
+
+
+	return string ("Error");
+
+
+}
 
 

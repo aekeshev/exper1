@@ -197,9 +197,10 @@ int strategie2(int laps2){
 		}while(shoot!="4");
 
 		j2++;
-		cout<< "Strategie 2 Anzahl durchlaeufe " << rounds << endl;
+		cout<<"strategie 2 durchlauefe: "<<rounds<<endl;
 
 	}while(j2<laps2);
+
 
 	return rounds;
 }
@@ -304,7 +305,8 @@ int main() {
 	//cout << "client sendet:" << start << endl;
 
 	int strat;
-	int go;
+	int reci;
+	int i2;
 	int laps;
 
 	cout << "Bitte waehlen sie eine strategie von 1-3: " << endl;
@@ -320,7 +322,9 @@ int main() {
 			break;
 
 		case 2:
+
 			strategie2(laps);
+
 			break;
 
 		case 3:
