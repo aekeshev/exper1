@@ -23,7 +23,7 @@ using namespace std;
 
 class MyServer : public TCPserver{
 public:
-	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w=new World;};
+	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w = new World;};
 protected:
 	string myResponse (string input);
 
@@ -55,8 +55,6 @@ string MyServer::myResponse (string input){
 	}
 
 
-
-
 	if ( input.compare(0,5,"shoot") == 0){
 		// shoot(<int>,<int>), z.B: shoot(3,7)
 		sscanf(input.c_str() ,"shoot(%i,%i)", &x,&y);
@@ -65,17 +63,17 @@ string MyServer::myResponse (string input){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
 		}
-		else if((x>10)||(y>10)){
+		if((x>10)||(y>10)){
 			res = string("ERROR. Falsche Parametereingabe. ");
 			return res;
 				}
 		else{
 
 			c = w->shoot(x,y);
-			cout << "Ergebnis: " << c << endl;
+			//cout << "Ergebnis: " << c << endl;
 
 			res =  c+'0';
-
+			cout << "Ergebnis: " << res << endl;
 			return res;
 		}
 	}
