@@ -51,6 +51,7 @@ string MyServer::myResponse (string input){
 			delete w;
 			w=new World;
 		}
+		cout << "wird gestartet" << endl;
 		return string ("Starten");
 	}
 

@@ -36,6 +36,7 @@ TCPclient c;
 	string test;
 	char a[] = {"shoot(10,y)"};		// Ausnahme: x = 10
 	char b[] = {"shoot(x,10)"};		// Ausnahme y = 10
+	char e[] = {"shoot(10,10)"};
 	char d[] = {"shoot(x,y)"};		// normale Antwort
 	char sp[] = {"spiel"};			// Nachristen an den server
 	char st[] = {"start"};
@@ -85,6 +86,8 @@ int strategie1(int laps1){
 				b[6] = x;
 				shoot = b;
 			}
+			if ((x1 == 10) && (y1 == 10))
+			{shoot = e;}
 			if((x1<10)&&(y1<10)){
 				x = x1 + '0';
 				y = y1 + '0';
@@ -145,6 +148,10 @@ int strategie2(int laps2){
 
 				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
 				y1 = y1 + 1;
+				if ((x1 == 10) && (y1 == 10))
+				{shoot = e;
+				}
+
 				if (x1 == 10){
 					y = y1 + '0';
 					a[9] = y;
@@ -208,28 +215,32 @@ int strategie2(int laps2){
 
 int strategie3(int laps3){
 
-	int rounds = 0;
-
+	int rounds;
 	int j3=0;
 	srand(time(NULL));
 
 	do{
+		shoot = "0";
 		start ="start";
 		c.sendData(start);
-		start = c.receive(25);
-		cout << start <<endl;
 		rounds=0;
 		int Feld [10][10] = {0};
+		for(int k = 0; k<10; k++) {
+				for( int l=0; l<10; l++) {
+					if (shoot != "4"){
+					spiel= sp;
 
-		do{
-			x1 = ((rand() % 10)) ;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
-			y1 = ((rand() % 10)) ;
-			spiel= sp;
+
+			x1 = k;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
+			y1 = l;
+
 			if (Feld[x1][y1] == 0){	 // Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
-						// (Feld ist besetzt)
+				Feld[x1][y1] = 1;
+				// (Feld ist besetzt)
 
 				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
 				y1 = y1 + 1;
+
 				if (x1 == 10){
 					y = y1 + '0';
 					a[9] = y;
@@ -241,6 +252,8 @@ int strategie3(int laps3){
 					b[6] = x;
 					shoot = b;
 				}
+				if ((x1 == 10) && (y1 == 10))
+				{shoot = e;}
 				if((x1<10)&&(y1<10)){
 					x = x1 + '0';
 					y = y1 + '0';
@@ -248,54 +261,156 @@ int strategie3(int laps3){
 					d[8] = y;
 					shoot = d;
 				}
+			}
+
 
 				rounds++;
 				/*for(int i=0; i<10; i++) { 			// zur Veranschaulichung, kann später gelöscht werden
 
 					for( int j=0; j<10; j++) {
-						printf("%d ", Feld[i][j]);
+
+						printf("%d ", Feld[j][i]);
 						}
 						printf("\n");
 					}
 				printf("\n");
-
 				*/
+
+
+
+
 
 
 				c.sendData(shoot);
 				shoot = c.receive(25);
+
 
 			//	cout << "Server Antwortet  :" << shoot << endl;
 			//	cout << "client sendet :" << spiel << endl;
 
 				c.sendData(spiel);
 				spiel = c.receive(25);
+
 			//cout << "Server Antwortet  :" << spiel << endl;
 			//sleep(1);
 			//cout << "Schuss : " << i << endl;
 			//cout << "Ergebniss : " << strat << endl;
 
-				if (shoot == "1" || shoot == "2")
-					{Feld[(x1-1)][(y1-1)] =2;}
-					else
-					{Feld[x1-1][y1-1] = 1;	}
 
-			}
-			else{
-				continue;
-			} // Wenn das Feld besetzt ist, soll fortgefahren werden und neue zufällige Zahlen generiert werden.
+					}
+				}}
 
-		}while(shoot!="4");
 
 
 		j3++;
 		cout<< "Strategie 3 Anzahl durchlaeufe " << rounds << endl;
+
+
 
 	}while(j3<laps3);
 
 		return rounds;
 }
 
+
+int strategie4(int laps4){
+
+	int rounds;
+	int j4=0;
+	srand(time(NULL));
+
+	do{
+		shoot = "0";
+		start ="start";
+		c.sendData(start);
+		rounds=0;
+		int Feld [10][10] = {0};
+		for(int k = 0; k<10; k++) {
+				for( int l=0; l<10; l++) {
+					if (shoot != "4"){
+					spiel= sp;
+
+
+			x1 = l;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
+			y1 = k;
+
+			if (Feld[x1][y1] == 0){	 // Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
+				Feld[x1][y1] = 1;
+				// (Feld ist besetzt)
+
+				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
+				y1 = y1 + 1;
+
+				if (x1 == 10){
+					y = y1 + '0';
+					a[9] = y;
+					shoot = a;
+				}
+				if (y1 == 10){
+
+					x = x1 + '0';
+					b[6] = x;
+					shoot = b;
+				}
+				if ((x1 == 10) && (y1 == 10))
+				{shoot = e;}
+				if((x1<10)&&(y1<10)){
+					x = x1 + '0';
+					y = y1 + '0';
+					d[6] = x;
+					d[8] = y;
+					shoot = d;
+				}
+			}
+
+
+				rounds++;
+				/*for(int i=0; i<10; i++) { 			// zur Veranschaulichung, kann später gelöscht werden
+
+					for( int j=0; j<10; j++) {
+
+						printf("%d ", Feld[j][i]);
+						}
+						printf("\n");
+					}
+				printf("\n");
+				*/
+
+
+
+
+
+
+				c.sendData(shoot);
+				shoot = c.receive(25);
+
+
+			//	cout << "Server Antwortet  :" << shoot << endl;
+			//	cout << "client sendet :" << spiel << endl;
+
+				c.sendData(spiel);
+				spiel = c.receive(25);
+
+			//cout << "Server Antwortet  :" << spiel << endl;
+			//sleep(1);
+			//cout << "Schuss : " << i << endl;
+			//cout << "Ergebniss : " << strat << endl;
+
+
+					}
+				}}
+
+
+
+		j4++;
+		cout<< "Strategie 4 Anzahl durchlaeufe " << rounds << endl;
+
+
+
+	}while(j4<laps4);
+
+		return rounds;
+}
 
 
 
@@ -309,7 +424,7 @@ int main() {
 	int i2;
 	int laps;
 
-	cout << "Bitte waehlen sie eine strategie von 1-3: " << endl;
+	cout << "Bitte waehlen sie eine strategie von 1-4: " << endl;
 	cin >> strat;
 
 	cout << "Wie viele Runden soll gespilet werden? " << endl;
@@ -329,6 +444,9 @@ int main() {
 
 		case 3:
 			strategie3(laps);
+			break;
+		case 4:
+			strategie4(laps);
 			break;
 
 	default :
