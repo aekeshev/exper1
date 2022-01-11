@@ -1,25 +1,27 @@
 /*
  * client.C
  *
- *  Created on: 11.09.2019
- *      Author: aml
+ *  Created on: 10.11.2021
+ *      Author: Anastasia Ekeshev
+ *      		Andre Tabeling
+ *      		Jana Plenter
  */
 
 #include <cstdio>
 #include <string>
 #include <iostream>
 
-#include <unistd.h> //contains various constants
+#include <unistd.h> 					//contains various constants
 
-#include <cstdlib> // this includes functions regarding memory allocation
-#include <cerrno> //It defines macros for reporting and retrieving error conditions through error codes
+#include <cstdlib> 						// this includes functions regarding memory allocation
+#include <cerrno> 						//It defines macros for reporting and retrieving error conditions through error codes
 #include <ctime>
 
-#include <unistd.h> //contains various constants
-#include <sys/types.h> //contains a number of basic derived types that should be used whenever appropriate
-#include <arpa/inet.h> // defines in_addr structure
-#include <sys/socket.h> // for socket creation
-#include <netinet/in.h> //contains constants and structures needed for internet domain addresses
+#include <unistd.h> 					//contains various constants
+#include <sys/types.h> 					//contains a number of basic derived types that should be used whenever appropriate
+#include <arpa/inet.h> 					// defines in_addr structure
+#include <sys/socket.h> 				// for socket creation
+#include <netinet/in.h> 				//contains constants and structures needed for internet domain addresses
 
 #include "SIMPLESOCKET.H"
 #include "TASK3.H"
@@ -33,44 +35,41 @@ TCPclient c;
 	string start = "start";
 	string spiel;
 	string shoot;
-	string test;
-	char a[] = {"shoot(10,y)"};		// Ausnahme: x = 10
-	char b[] = {"shoot(x,10)"};		// Ausnahme y = 10
-	char e[] = {"shoot(10,10)"};
-	char d[] = {"shoot(x,y)"};		// normale Antwort
-	char sp[] = {"spiel"};			// Nachristen an den server
+	char a[] = {"shoot(10,y)"};			// Ausnahme: x = 10
+	char b[] = {"shoot(x,10)"};			// Ausnahme y = 10
+	char e[] = {"shoot(10,10)"};		// Ausnahme x = 10, y = 10;
+	char d[] = {"shoot(x,y)"};			// normale Antwort
+	char sp[] = {"spiel"};
 	char st[] = {"start"};
-	char sh[] = {"shoot"};
 	char x;
 	char y;
 	int x1 = 0;
 	int y1 = 0;
-	long int i = 0;
-	int world =0;
-	long int i2=0;
-	int i3 =0;
-	bool belegt;
-	int x2;
-	int y2;
-	int n=0;
-	string msg;
+	int j1 = 0; 						//zaehler durchlaeufe auf verschiedene Welten Strategie 1
+	int j2 = 0; 						//zaehler durchlaeufe auf verschiedene Welten Strategie 2
+	int j3 = 0; 						//zaehler durchlaeufe auf verschiedene Welten Strategie 3
+	int j4 = 0; 						//zaehler durchlaeufe auf verschiedene Welten Strategie 4
+	int r1 = 0;							//zaehler durchlaeufe pro Welt Strategie 1
+	int r2 = 0;							//zaehler durchlaeufe pro Welt Strategie 2
+	int r3 = 0;							//zaehler durchlaeufe pro Welt Strategie 3
+	int r4 = 0;							//zaehler durchlaeufe pro Welt Strategie 4
+	int strat;
+	int reci;
+	int laps;
 
 
 int strategie1(int laps1){
-
-	int rounds=0;
-	int j1=0;
 	srand(time(NULL));
-
-
-
+	j1 = 0;
 
 	do{
-		start = "start";
+
+		start = st;						//Zeichenkette "start"
 		c.sendData(start);
-		rounds =0;
+		r1 = 0;
+
 		do{
-			spiel= sp; // Zeichenkette "Spiel"
+			spiel= sp; 					// Zeichenkette "Spiel"
 
 			x1 = (rand() % 10) +1;		// Zuweisung von den Werten für die Schusse
 			y1 = (rand() % 10) +1;		// Werte zwischen 1 und 10
@@ -91,59 +90,44 @@ int strategie1(int laps1){
 			if((x1<10)&&(y1<10)){
 				x = x1 + '0';
 				y = y1 + '0';
-				d[6] = x;			// Einbringung der y und x Werte in die Zeichenkette shoot(x,y)
+				d[6] = x;				// Einbringung der y und x Werte in die Zeichenkette shoot(x,y)
 				d[8] = y;
 				shoot = d;
 			}
 
-			rounds++;				// Zählung der Spielzüge
-
-			// cout << "client sendet . :" << shoot << endl;
-
-			c.sendData(shoot);		// client sendet den Schuss
-			shoot = c.receive(25);  // Antwort von dem Server (shoot = 1, 2, 3 oder 4)
-
-			//	cout << "Server Antwortet  :" << shoot << endl;
-			//	cout << "client sendet :" << spiel << endl;
-
-			c.sendData(spiel); // client fragt das Spielfeld ab
-			spiel = c.receive(25); // server sendet das SPi
-			//cout << "Server Antwortet  :" << spiel << endl;
-			//sleep(1);
-			//cout << "Schuss : " << i << endl;
-			//cout << "Ergebniss : " << strat << endl;
+			r1++;						// Zählung der Spielzüge
+			c.sendData(shoot);			// client sendet den Schuss
+			shoot = c.receive(25);  	// Antwort von dem Server (shoot = 1, 2, 3 oder 4
+			c.sendData(spiel); 			// client fragt das Spielfeld ab
+			spiel = c.receive(25); 		// server sendet das SPi
 
 			}while(shoot!="4");
 
 		j1++;
-		cout<< "Strategie 1 Anzahl durchlaeufe " << rounds << endl;
+		cout<< "Strategie 1 Anzahl durchlaeufe " << r1 << endl;
 
 	}while(j1<laps1);
 
-
-
-	return rounds;
+	return r1;
 }
 
 int strategie2(int laps2){
-
-	int rounds ;
-	int j2=0;
 	srand(time(NULL));
+	j2 = 0;
 
 
 
 	do{
-		start ="start";
+		start =st;
 		c.sendData(start);
-		rounds=0;
+		r2 = 0;
 		int Feld [10][10] = {0};
 
 		do{
-			x1 = ((rand() % 10)) ;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
+			x1 = ((rand() % 10)) ;  		// Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
 			y1 = ((rand() % 10)) ;
 			spiel= sp;
-			if (Feld[x1][y1] == 0){	 // Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
+			if (Feld[x1][y1] == 0){	 		// Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
 				Feld[x1][y1] = 1;			// (Feld ist besetzt)
 
 				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
@@ -171,74 +155,52 @@ int strategie2(int laps2){
 					shoot = d;
 				}
 
-				rounds++;
-				/*for(int i=0; i<10; i++) { 			// zur Veranschaulichung, kann später gelöscht werden
-
-					for( int j=0; j<10; j++) {
-						printf("%d ", Feld[i][j]);
-						}
-						printf("\n");
-					}
-				printf("\n");
-
-				*/
-
+				r2++;
 
 				c.sendData(shoot);
 				shoot = c.receive(25);
-
-			//	cout << "Server Antwortet  :" << shoot << endl;
-			//	cout << "client sendet :" << spiel << endl;
-
 				c.sendData(spiel);
 				spiel = c.receive(25);
-			//cout << "Server Antwortet  :" << spiel << endl;
-			//sleep(1);
-			//cout << "Schuss : " << i << endl;
-			//cout << "Ergebniss : " << strat << endl;
-
-
-
 			}
 
 		}while(shoot!="4");
 
 		j2++;
-		cout<<"strategie 2 durchlauefe: "<<rounds<<endl;
+		cout<<"strategie 2 durchlauefe: "<<r2<<endl;
 
 	}while(j2<laps2);
 
 
-	return rounds;
+	return r2;
 }
 
 
 int strategie3(int laps3){
-
-	int rounds;
-	int j3=0;
 	srand(time(NULL));
+	j3 = 0;
 
 	do{
 		shoot = "0";
-		start ="start";
+		start =st;
 		c.sendData(start);
-		rounds=0;
+		r3 = 0;
+
 		int Feld [10][10] = {0};
+
 		for(int k = 0; k<10; k++) {
+
 				for( int l=0; l<10; l++) {
 					if (shoot != "4"){
 					spiel= sp;
 
-
-			x1 = k;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
+			x1 = k;  							// Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
 			y1 = l;
 
-			if (Feld[x1][y1] == 0){	 // Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
+			if (Feld[x1][y1] == 0){	 			// Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
 				Feld[x1][y1] = 1;
-				// (Feld ist besetzt)
+												// (Feld ist besetzt)
 
-				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
+				x1 = x1 + 1;					// +1, um die Koordinaten für den Schuss senden zu können
 				y1 = y1 + 1;
 
 				if (x1 == 10){
@@ -253,7 +215,10 @@ int strategie3(int laps3){
 					shoot = b;
 				}
 				if ((x1 == 10) && (y1 == 10))
-				{shoot = e;}
+				{
+					shoot = e;
+				}
+
 				if((x1<10)&&(y1<10)){
 					x = x1 + '0';
 					y = y1 + '0';
@@ -262,83 +227,51 @@ int strategie3(int laps3){
 					shoot = d;
 				}
 			}
-
-
-				rounds++;
-				/*for(int i=0; i<10; i++) { 			// zur Veranschaulichung, kann später gelöscht werden
-
-					for( int j=0; j<10; j++) {
-
-						printf("%d ", Feld[j][i]);
-						}
-						printf("\n");
-					}
-				printf("\n");
-				*/
-
-
-
-
-
+				r3++;
 
 				c.sendData(shoot);
 				shoot = c.receive(25);
-
-
-			//	cout << "Server Antwortet  :" << shoot << endl;
-			//	cout << "client sendet :" << spiel << endl;
-
 				c.sendData(spiel);
 				spiel = c.receive(25);
-
-			//cout << "Server Antwortet  :" << spiel << endl;
-			//sleep(1);
-			//cout << "Schuss : " << i << endl;
-			//cout << "Ergebniss : " << strat << endl;
-
-
 					}
-				}}
-
-
+				}
+		}
 
 		j3++;
-		cout<< "Strategie 3 Anzahl durchlaeufe " << rounds << endl;
-
+		cout<< "Strategie 3 Anzahl durchlaeufe " << r3<< endl;
 
 
 	}while(j3<laps3);
 
-		return rounds;
+		return r3;
 }
 
 
 int strategie4(int laps4){
-
-	int rounds;
-	int j4=0;
 	srand(time(NULL));
+	j4 = 0;
 
 	do{
 		shoot = "0";
-		start ="start";
+		start =st;
 		c.sendData(start);
-		rounds=0;
+		r4 = 0;
+
 		int Feld [10][10] = {0};
+
 		for(int k = 0; k<10; k++) {
 				for( int l=0; l<10; l++) {
 					if (shoot != "4"){
 					spiel= sp;
 
-
-			x1 = l;  // Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
+			x1 = l;  							// Werte für die Schusse zwischen 0 und 9. Ohne +1, weil das angelegte Feld bei [0][0] anfängt
 			y1 = k;
 
-			if (Feld[x1][y1] == 0){	 // Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
+			if (Feld[x1][y1] == 0){	 			// Wenn an der Stelle x,y 0 eingetragen ist, soll an dieser STelle eine 1 eingetragen werden
 				Feld[x1][y1] = 1;
-				// (Feld ist besetzt)
+												// (Feld ist besetzt)
 
-				x1 = x1 + 1;				// +1, um die Koordinaten für den Schuss senden zu können
+				x1 = x1 + 1;					// +1, um die Koordinaten für den Schuss senden zu können
 				y1 = y1 + 1;
 
 				if (x1 == 10){
@@ -363,18 +296,7 @@ int strategie4(int laps4){
 				}
 			}
 
-
-				rounds++;
-				/*for(int i=0; i<10; i++) { 			// zur Veranschaulichung, kann später gelöscht werden
-
-					for( int j=0; j<10; j++) {
-
-						printf("%d ", Feld[j][i]);
-						}
-						printf("\n");
-					}
-				printf("\n");
-				*/
+				r4++;
 
 
 
@@ -383,46 +305,24 @@ int strategie4(int laps4){
 
 				c.sendData(shoot);
 				shoot = c.receive(25);
-
-
-			//	cout << "Server Antwortet  :" << shoot << endl;
-			//	cout << "client sendet :" << spiel << endl;
-
 				c.sendData(spiel);
 				spiel = c.receive(25);
 
-			//cout << "Server Antwortet  :" << spiel << endl;
-			//sleep(1);
-			//cout << "Schuss : " << i << endl;
-			//cout << "Ergebniss : " << strat << endl;
-
-
 					}
-				}}
-
-
+				}
+		}
 
 		j4++;
-		cout<< "Strategie 4 Anzahl durchlaeufe " << rounds << endl;
-
-
+		cout<< "Strategie 4 Anzahl durchlaeufe " << r4 << endl;
 
 	}while(j4<laps4);
 
-		return rounds;
+		return r4;
 }
 
 
-
 int main() {
-	//connect to host
-	c.conn(host , 2022);
-	//cout << "client sendet:" << start << endl;
-
-	int strat;
-	int reci;
-	int i2;
-	int laps;
+	c.conn(host , 2022);						//connect to host
 
 	cout << "Bitte waehlen sie eine strategie von 1-4: " << endl;
 	cin >> strat;
@@ -435,30 +335,19 @@ int main() {
 		case 1:
 			strategie1(laps);
 			break;
-
 		case 2:
-
 			strategie2(laps);
-
 			break;
-
 		case 3:
 			strategie3(laps);
 			break;
 		case 4:
 			strategie4(laps);
 			break;
-
-	default :
-		cout <<"problem bei der Eingabe"<< endl;
+		default :
+			cout <<"problem bei der Eingabe"<< endl;
 
 	}
-
-
-
-
-
-
 
 
 }

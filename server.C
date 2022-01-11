@@ -27,8 +27,7 @@ public:
 protected:
 	string myResponse (string input);
 
-	World *w; //Zeiger auf die Instanz von world "adresse"
-
+	World *w; 								//Zeiger auf die Instanz von world "adresse"
 
 };
 
@@ -57,7 +56,6 @@ string MyServer::myResponse (string input){
 
 
 	if ( input.compare(0,5,"shoot") == 0){
-		// shoot(<int>,<int>), z.B: shoot(3,7)
 		sscanf(input.c_str() ,"shoot(%i,%i)", &x,&y);
 
 		if((x<1)||(y<1)){
@@ -71,8 +69,6 @@ string MyServer::myResponse (string input){
 		else{
 
 			c = w->shoot(x,y);
-			//cout << "Ergebnis: " << c << endl;
-
 			res =  c+'0';
 			cout << "Ergebnis: " << res << endl;
 			return res;
