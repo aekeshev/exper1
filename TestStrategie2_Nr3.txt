@@ -1,0 +1,17 @@
+Socket created
+localhost resolved to 127.0.0.1
+Connected
+Strategie: 2 Runden: 10
+strategie 2 durchlauefe: 94
+strategie 2 durchlauefe: 98
+Fehler zu viele durchläufe
+strategie 2 durchlauefe: 100
+Fehler zu viele durchläufe
+strategie 2 durchlauefe: 100
+strategie 2 durchlauefe: 99
+strategie 2 durchlauefe: 99
+Fehler zu viele durchläufe
+strategie 2 durchlauefe: 100
+strategie 2 durchlauefe: 99
+strategie 2 durchlauefe: 99
+strategie 2 durchlauefe: 93

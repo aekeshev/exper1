@@ -1,0 +1,14 @@
+Socket created
+localhost resolved to 127.0.0.1
+Connected
+Strategie: 3 Runden: 10
+Strategie 3 Anzahl durchlaeufe 90
+Strategie 3 Anzahl durchlaeufe 96
+Strategie 3 Anzahl durchlaeufe 98
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100
+Strategie 3 Anzahl durchlaeufe 100

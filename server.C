@@ -43,46 +43,45 @@ string MyServer::myResponse (string input){
 	int x,y,c;
 	string res;
 
-	if ( input.compare(0,5,"start") == 0){
-		if(w==NULL){
-			w=new World;
+	if ( input.compare(0,5,"start") == 0){							//Nachricht von Client lesen prüfen ob die Nachricht verwertbar ist
+		if(w==NULL){												//Prüfen ob bereits eine Spielwelt existiert
+			w=new World;											//Neue Welt
+
 		}else{
-			delete w;
-			w=new World;
+			delete w;												//alte Welt Löschen
+			w=new World;											//Neue Welt
 		}
-		cout << "wird gestartet" << endl;
-		return string ("Starten");
+		cout << "Neue Welt erstellt " << endl;
+		return string ("Neue Welt");								//Nachricht an client
 	}
 
 
-	if ( input.compare(0,5,"shoot") == 0){
-		sscanf(input.c_str() ,"shoot(%i,%i)", &x,&y);
+	if ( input.compare(0,5,"shoot") == 0){							//Nachricht von Client lesen prüfen ob die Nachricht verwertbar ist
+		sscanf(input.c_str() ,"shoot(%i,%i)", &x,&y);				//Koordinaten empfangen
 
-		if((x<1)||(y<1)){
+		if((x<1)||(y<1)){											//Prüfen ob die Koordinaten im Spielfeld liegen
 			res = string("ERROR. Falsche Parametereingabe. ");
-			return res;
+			return res;												//Fehlermeldung zurück geben
 		}
 		if((x>10)||(y>10)){
-			res = string("ERROR. Falsche Parametereingabe. ");
-			return res;
+			res = string("ERROR. Falsche Parametereingabe. ");		//Prüfen ob die Koordinaten im Spielfeld liegen
+			return res;												//Fehlermeldung zurück geben
 		}
-		else{
-
-			c = w->shoot(x,y);
-			res =  c+'0';
+		else{														//Koordinaten im Spielfeld
+			c = w->shoot(x,y);    									//Zustand der beschossenen Koordinate abfragen
+			res = c +'0';											//Zustand der beschossenen Koordinate für Client verständlich machen
 			cout << "Ergebnis: " << res << endl;
-			return res;
+			return res;												//Zustand an Client senden
 		}
 	}
 
 	if (input.compare(0,5,"spiel") == 0){
-					w->printBoard();
-					res = string ("Schuss");
-					return res;
+					w->printBoard();								//Spielfeld ausgeben
+					res = "Spielfeld";
+					return res;										//Spielefeldausgabe an Client bestätigen
 	}
 
-
-	return string ("Error");
+	return string ("Error");										//Rückgabe wenn keine if / else Bedingung erfüllt wid
 
 
 }
