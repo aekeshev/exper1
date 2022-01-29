@@ -69,6 +69,7 @@ int strategie1(int laps1){
 
 		start = st;						//Zeichenkette "start"
 		c.sendData(start);
+		start = c.receive(25);
 		r1 = 0;
 
 		do{
@@ -98,19 +99,26 @@ int strategie1(int laps1){
 				d[8] = y;
 				shoot = d;
 			}
-
 			r1++;						// Zählung der Spielzüge
 			c.sendData(shoot);			// client sendet den Schuss
 			shoot = c.receive(25);  	// Antwort von dem Server (shoot = 1, 2, 3 oder 4
 			c.sendData(spiel); 			// client fragt das Spielfeld ab
 			spiel = c.receive(25); 		// server sendet das SPi
 
+
+
+
+
 			}while(shoot!="4");
 
+
 		j1++;
-		cout << "Strategie 1 Anzahl durchlaeufe " << r1 << endl;
+		cout << "Strategie 1 Anzahl Durchlaeufe " << r1 << endl;
 
 	}while(j1<laps1);
+	string msg = "BYEBYE";
+	c.sendData(msg);		// server schließen
+	msg = c.receive(25);
 
 	return r1;
 }
@@ -121,17 +129,23 @@ int strategie2(int laps2){
 	int i = 0;
 	do{
 		start = st;								// start die Zeichenkette "start" übergeben
-		c.sendData(start);						// Zeichenkette an server senden
+		 c.sendData(start);						// Zeichenkette an server senden
+		 start = c.receive(25);
+
+
 		r2 = 0;									// Zähler schüsse auf Spielwelt
 		i = 0;
 		int Feld [10][10] = {0};				// Feld Initialisieren
 
 		do{
+
 			x1 = ((rand() % 10)) ;  			// Werte für die Schuesse zwischen 0 und 9, da das angelegte Feld bei [0][0] anfängt
 			y1 = ((rand() % 10)) ;
 			spiel= sp;							// spiel die Zeichenkette "spiel übergeben
 
-			if (Feld[x1][y1] == 0){				// Prüft ob das Feld bereits belegt ist
+			if (Feld[x1][y1] != 1){				// Prüft ob das Feld bereits belegt ist
+
+
 				Feld[x1][y1] = 1; 				// Feld Belegt setzten
 				x1 = x1 + 1;					// +1, um die Koordinaten für den Server verständlich zu machen.
 				y1 = y1 + 1;
@@ -140,13 +154,13 @@ int strategie2(int laps2){
 					shoot = e;					// shoot die Zeichekette "shoot(10,10) übergeben
 				}
 
-				if ((x1 == 10)&&(y!=10)){		// Sonderfall x = 10
+				if ((x1 == 10)&&(y1 !=10)){		// Sonderfall x = 10
 					y = y1 + '0';				// y1 durch +'0' für den server verständlich machen und an y übergeben
 					a[9] = y;					// das zehnte Zeichen in a durch das an y zuvor übergeben Zeichen ersetzten
 					shoot = a;					// shoot die Zeichekette "shoot(10,y)" übergeben
 				}
 
-				if ((y1 == 10)&&(x!=10)){
+				if ((y1 == 10)&&(x1 !=10)){
 					x = x1 + '0';				// x1 durch +'0' für den server verständlich machen und an x übergeben
 					b[6] = x;					// das siebte Zeichen in b durch das an x zuvor übergeben Zeichen ersetzten
 					shoot = b;					// shoot die Zeichekette "shoot(x,10)" übergeben
@@ -159,28 +173,28 @@ int strategie2(int laps2){
 					d[8] = y;					// das neunte Zeichen in d durch das an y zuvor übergeben Zeichen ersetzten
 					shoot = d;					// shoot die Zeichekette "shoot(x,y)" übergeben
 				}
-
-
+				r2++;
 				c.sendData(shoot);				//Koordinaten an Server Senden
 				shoot = c.receive(25);			//Resultat des Schusses von Server zurück bekommen
 				c.sendData(spiel);				//Befehl zur ausgabe des Spielfelds
 				spiel = c.receive(25);			//Bestätigung der Ausgabe des Spielfelds
-				r2++;							//Der Schuss wird erst gezählt wenn der Server Geatwortet hat
+											//Der Schuss wird erst gezählt wenn der Server Geatwortet hat
+
 			}
-			if(r2>=100){						//Bei mehr als 100 Schüssen wird der Durchlauf abgebrochen
-				cout << "Fehler zu viele durchläufe" << endl;
-				break;
-			}
+
 
 
 		}while(shoot!="4");
 
 		j2++;
-		cout << "strategie 2 durchlauefe: " << r2 << endl;
+		cout << "strategie 2 Durchlauefe: " << r2 << endl;
+
 
 	}while(j2<laps2);
 
-
+	string msg = "BYEBYE";
+	c.sendData(msg);
+	msg = c.receive(25);
 	return r2;
 }
 
@@ -190,14 +204,15 @@ int strategie3(int laps3){
 	j3 = 0;
 
 	do{
-		shoot = "0";
+		shoot = "0";    // definition von shoot für die if bedingung
 		start =st;
 		c.sendData(start);
+		start = c.receive(25);
 		r3 = 0;
 
 		int Feld [10][10] = {0};
 
-		for(int k = 0; k<10; k++) {
+		for(int k = 0; k<10; k++) {     // in dieser strategie schießt der server vertikal nacheinander
 
 			for( int l=0; l<10; l++) {
 				if (shoot != "4"){
@@ -237,6 +252,7 @@ int strategie3(int laps3){
 					shoot = d;
 				}
 			}
+
 				r3++;
 
 				c.sendData(shoot);
@@ -248,11 +264,14 @@ int strategie3(int laps3){
 		}
 
 		j3++;
-		cout<< "Strategie 3 Anzahl durchlaeufe " << r3<< endl;
+		cout<< "Strategie 3 Anzahl Durchlaeufe " << r3<< endl;
+
 
 
 	}while(j3<laps3);
-
+	string msg = "BYEBYE";
+	c.sendData(msg);
+	msg = c.receive(25);
 		return r3;
 }
 
@@ -265,11 +284,12 @@ int strategie4(int laps4){
 		shoot = "0";
 		start =st;
 		c.sendData(start);
+		start = c.receive(25);
 		r4 = 0;
 
 		int Feld [10][10] = {0};
 
-		for(int k = 0; k<10; k++) {
+		for(int k = 0; k<10; k++) {                // in dieser strategie schießt der server horizontal nacheinander
 			for( int l=0; l<10; l++) {
 				if (shoot != "4"){
 				spiel= sp;
@@ -317,9 +337,13 @@ int strategie4(int laps4){
 		}
 
 		j4++;
-		cout<< "Strategie 4 Anzahl durchlaeufe " << r4 << endl;
+		cout<< "Strategie 4 Anzahl Durchlaeufe " << r4 << endl;
 
 	}while(j4<laps4);
+
+	string msg = "BYEBYE";
+	c.sendData(msg);
+	msg = c.receive(25);
 
 		return r4;
 }
@@ -359,7 +383,7 @@ int main(int argc, char * argv[]) {
 			strategie4(laps);
 			break;
 		default :
-			cout <<"problem bei der Eingabe"<< endl;
+			cout <<"Problem bei der Eingabe"<< endl;
 
 	}
 
