@@ -251,11 +251,6 @@ protected:
  * Untile all ships are destroyed and the game is over.
  */
 void demoTask3();
- void Versuch1();
- /*
-void Versuch2();
-*/
-
-} // namespace TASK3
+}
 
 #endif /* TASK3_H_ */

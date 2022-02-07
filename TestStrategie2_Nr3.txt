@@ -1,17 +1,104 @@
 Socket created
 localhost resolved to 127.0.0.1
 Connected
-Strategie: 2 Runden: 10
-strategie 2 durchlauefe: 94
-strategie 2 durchlauefe: 98
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-strategie 2 durchlauefe: 99
-strategie 2 durchlauefe: 99
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-strategie 2 durchlauefe: 99
-strategie 2 durchlauefe: 99
-strategie 2 durchlauefe: 93
+Strategie: 1 Runden: 100
+Strategie 1 Anzahl Durchlaeufe 375
+Strategie 1 Anzahl Durchlaeufe 337
+Strategie 1 Anzahl Durchlaeufe 412
+Strategie 1 Anzahl Durchlaeufe 304
+Strategie 1 Anzahl Durchlaeufe 390
+Strategie 1 Anzahl Durchlaeufe 496
+Strategie 1 Anzahl Durchlaeufe 536
+Strategie 1 Anzahl Durchlaeufe 211
+Strategie 1 Anzahl Durchlaeufe 513
+Strategie 1 Anzahl Durchlaeufe 604
+Strategie 1 Anzahl Durchlaeufe 264
+Strategie 1 Anzahl Durchlaeufe 376
+Strategie 1 Anzahl Durchlaeufe 540
+Strategie 1 Anzahl Durchlaeufe 580
+Strategie 1 Anzahl Durchlaeufe 511
+Strategie 1 Anzahl Durchlaeufe 365
+Strategie 1 Anzahl Durchlaeufe 338
+Strategie 1 Anzahl Durchlaeufe 311
+Strategie 1 Anzahl Durchlaeufe 624
+Strategie 1 Anzahl Durchlaeufe 663
+Strategie 1 Anzahl Durchlaeufe 418
+Strategie 1 Anzahl Durchlaeufe 281
+Strategie 1 Anzahl Durchlaeufe 608
+Strategie 1 Anzahl Durchlaeufe 624
+Strategie 1 Anzahl Durchlaeufe 343
+Strategie 1 Anzahl Durchlaeufe 243
+Strategie 1 Anzahl Durchlaeufe 403
+Strategie 1 Anzahl Durchlaeufe 462
+Strategie 1 Anzahl Durchlaeufe 370
+Strategie 1 Anzahl Durchlaeufe 429
+Strategie 1 Anzahl Durchlaeufe 436
+Strategie 1 Anzahl Durchlaeufe 621
+Strategie 1 Anzahl Durchlaeufe 787
+Strategie 1 Anzahl Durchlaeufe 239
+Strategie 1 Anzahl Durchlaeufe 284
+Strategie 1 Anzahl Durchlaeufe 408
+Strategie 1 Anzahl Durchlaeufe 555
+Strategie 1 Anzahl Durchlaeufe 384
+Strategie 1 Anzahl Durchlaeufe 318
+Strategie 1 Anzahl Durchlaeufe 300
+Strategie 1 Anzahl Durchlaeufe 490
+Strategie 1 Anzahl Durchlaeufe 519
+Strategie 1 Anzahl Durchlaeufe 366
+Strategie 1 Anzahl Durchlaeufe 427
+Strategie 1 Anzahl Durchlaeufe 485
+Strategie 1 Anzahl Durchlaeufe 339
+Strategie 1 Anzahl Durchlaeufe 459
+Strategie 1 Anzahl Durchlaeufe 366
+Strategie 1 Anzahl Durchlaeufe 375
+Strategie 1 Anzahl Durchlaeufe 339
+Strategie 1 Anzahl Durchlaeufe 260
+Strategie 1 Anzahl Durchlaeufe 455
+Strategie 1 Anzahl Durchlaeufe 303
+Strategie 1 Anzahl Durchlaeufe 528
+Strategie 1 Anzahl Durchlaeufe 399
+Strategie 1 Anzahl Durchlaeufe 335
+Strategie 1 Anzahl Durchlaeufe 458
+Strategie 1 Anzahl Durchlaeufe 552
+Strategie 1 Anzahl Durchlaeufe 393
+Strategie 1 Anzahl Durchlaeufe 260
+Strategie 1 Anzahl Durchlaeufe 425
+Strategie 1 Anzahl Durchlaeufe 392
+Strategie 1 Anzahl Durchlaeufe 459
+Strategie 1 Anzahl Durchlaeufe 419
+Strategie 1 Anzahl Durchlaeufe 282
+Strategie 1 Anzahl Durchlaeufe 475
+Strategie 1 Anzahl Durchlaeufe 513
+Strategie 1 Anzahl Durchlaeufe 442
+Strategie 1 Anzahl Durchlaeufe 415
+Strategie 1 Anzahl Durchlaeufe 431
+Strategie 1 Anzahl Durchlaeufe 339
+Strategie 1 Anzahl Durchlaeufe 345
+Strategie 1 Anzahl Durchlaeufe 938
+Strategie 1 Anzahl Durchlaeufe 427
+Strategie 1 Anzahl Durchlaeufe 375
+Strategie 1 Anzahl Durchlaeufe 576
+Strategie 1 Anzahl Durchlaeufe 291
+Strategie 1 Anzahl Durchlaeufe 542
+Strategie 1 Anzahl Durchlaeufe 326
+Strategie 1 Anzahl Durchlaeufe 207
+Strategie 1 Anzahl Durchlaeufe 304
+Strategie 1 Anzahl Durchlaeufe 172
+Strategie 1 Anzahl Durchlaeufe 675
+Strategie 1 Anzahl Durchlaeufe 546
+Strategie 1 Anzahl Durchlaeufe 384
+Strategie 1 Anzahl Durchlaeufe 596
+Strategie 1 Anzahl Durchlaeufe 586
+Strategie 1 Anzahl Durchlaeufe 461
+Strategie 1 Anzahl Durchlaeufe 390
+Strategie 1 Anzahl Durchlaeufe 266
+Strategie 1 Anzahl Durchlaeufe 490
+Strategie 1 Anzahl Durchlaeufe 399
+Strategie 1 Anzahl Durchlaeufe 413
+Strategie 1 Anzahl Durchlaeufe 360
+Strategie 1 Anzahl Durchlaeufe 320
+Strategie 1 Anzahl Durchlaeufe 380
+Strategie 1 Anzahl Durchlaeufe 351
+Strategie 1 Anzahl Durchlaeufe 291
+Strategie 1 Anzahl Durchlaeufe 283
+Strategie 1 Anzahl Durchlaeufe 341

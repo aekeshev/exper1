@@ -1,8 +1,10 @@
 /*
  * server.C
  *
- *  Created on: 11.09.2019
- *      Author: aml
+ *  Created on: 10.11.2021
+ *      Author: Anastasia Ekeshev
+ *      		Andre Tabeling
+ *      		Jana Plenter
  */
 #include <cstdio> // standard input and output library
 #include <cstdlib> // this includes functions regarding memory allocation
@@ -23,18 +25,18 @@ using namespace std;
 
 class MyServer : public TCPserver{
 public:
-	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w = new World;};//neue adresse zuweisen
+	MyServer(int portNmb, int maxDataRecv): TCPserver(portNmb, maxDataRecv){w = new World;};		//neue adresse zuweisen
 protected:
 	string myResponse (string input);
 
-	World *w; 								//Zeiger auf die Instanz von world "adresse"
+	World *w; 																						//Zeiger auf die Instanz von world "adresse"
 
 };
 
 
 int main(){
 	srand(time(nullptr));
-	MyServer srv(2022,25);
+	MyServer srv(2022,25);											//Kommunikationskanal
 	srv.run();
 }
 

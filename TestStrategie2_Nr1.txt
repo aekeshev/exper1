@@ -1,23 +1,104 @@
 Socket created
 localhost resolved to 127.0.0.1
 Connected
-Strategie: 2 Runden: 10
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
-strategie 2 durchlauefe: 99
-Fehler zu viele durchläufe
-strategie 2 durchlauefe: 100
+Strategie: 1 Runden: 100
+Strategie 1 Anzahl Durchlaeufe 500
+Strategie 1 Anzahl Durchlaeufe 424
+Strategie 1 Anzahl Durchlaeufe 363
+Strategie 1 Anzahl Durchlaeufe 351
+Strategie 1 Anzahl Durchlaeufe 582
+Strategie 1 Anzahl Durchlaeufe 374
+Strategie 1 Anzahl Durchlaeufe 200
+Strategie 1 Anzahl Durchlaeufe 434
+Strategie 1 Anzahl Durchlaeufe 360
+Strategie 1 Anzahl Durchlaeufe 221
+Strategie 1 Anzahl Durchlaeufe 270
+Strategie 1 Anzahl Durchlaeufe 431
+Strategie 1 Anzahl Durchlaeufe 681
+Strategie 1 Anzahl Durchlaeufe 266
+Strategie 1 Anzahl Durchlaeufe 243
+Strategie 1 Anzahl Durchlaeufe 267
+Strategie 1 Anzahl Durchlaeufe 311
+Strategie 1 Anzahl Durchlaeufe 292
+Strategie 1 Anzahl Durchlaeufe 327
+Strategie 1 Anzahl Durchlaeufe 349
+Strategie 1 Anzahl Durchlaeufe 226
+Strategie 1 Anzahl Durchlaeufe 421
+Strategie 1 Anzahl Durchlaeufe 223
+Strategie 1 Anzahl Durchlaeufe 351
+Strategie 1 Anzahl Durchlaeufe 382
+Strategie 1 Anzahl Durchlaeufe 428
+Strategie 1 Anzahl Durchlaeufe 325
+Strategie 1 Anzahl Durchlaeufe 288
+Strategie 1 Anzahl Durchlaeufe 514
+Strategie 1 Anzahl Durchlaeufe 428
+Strategie 1 Anzahl Durchlaeufe 256
+Strategie 1 Anzahl Durchlaeufe 406
+Strategie 1 Anzahl Durchlaeufe 520
+Strategie 1 Anzahl Durchlaeufe 792
+Strategie 1 Anzahl Durchlaeufe 293
+Strategie 1 Anzahl Durchlaeufe 363
+Strategie 1 Anzahl Durchlaeufe 414
+Strategie 1 Anzahl Durchlaeufe 317
+Strategie 1 Anzahl Durchlaeufe 590
+Strategie 1 Anzahl Durchlaeufe 239
+Strategie 1 Anzahl Durchlaeufe 446
+Strategie 1 Anzahl Durchlaeufe 737
+Strategie 1 Anzahl Durchlaeufe 637
+Strategie 1 Anzahl Durchlaeufe 275
+Strategie 1 Anzahl Durchlaeufe 471
+Strategie 1 Anzahl Durchlaeufe 297
+Strategie 1 Anzahl Durchlaeufe 230
+Strategie 1 Anzahl Durchlaeufe 361
+Strategie 1 Anzahl Durchlaeufe 398
+Strategie 1 Anzahl Durchlaeufe 287
+Strategie 1 Anzahl Durchlaeufe 386
+Strategie 1 Anzahl Durchlaeufe 614
+Strategie 1 Anzahl Durchlaeufe 604
+Strategie 1 Anzahl Durchlaeufe 548
+Strategie 1 Anzahl Durchlaeufe 622
+Strategie 1 Anzahl Durchlaeufe 513
+Strategie 1 Anzahl Durchlaeufe 294
+Strategie 1 Anzahl Durchlaeufe 277
+Strategie 1 Anzahl Durchlaeufe 484
+Strategie 1 Anzahl Durchlaeufe 398
+Strategie 1 Anzahl Durchlaeufe 265
+Strategie 1 Anzahl Durchlaeufe 644
+Strategie 1 Anzahl Durchlaeufe 364
+Strategie 1 Anzahl Durchlaeufe 324
+Strategie 1 Anzahl Durchlaeufe 334
+Strategie 1 Anzahl Durchlaeufe 349
+Strategie 1 Anzahl Durchlaeufe 351
+Strategie 1 Anzahl Durchlaeufe 353
+Strategie 1 Anzahl Durchlaeufe 644
+Strategie 1 Anzahl Durchlaeufe 588
+Strategie 1 Anzahl Durchlaeufe 394
+Strategie 1 Anzahl Durchlaeufe 515
+Strategie 1 Anzahl Durchlaeufe 538
+Strategie 1 Anzahl Durchlaeufe 294
+Strategie 1 Anzahl Durchlaeufe 265
+Strategie 1 Anzahl Durchlaeufe 331
+Strategie 1 Anzahl Durchlaeufe 304
+Strategie 1 Anzahl Durchlaeufe 192
+Strategie 1 Anzahl Durchlaeufe 319
+Strategie 1 Anzahl Durchlaeufe 338
+Strategie 1 Anzahl Durchlaeufe 597
+Strategie 1 Anzahl Durchlaeufe 202
+Strategie 1 Anzahl Durchlaeufe 350
+Strategie 1 Anzahl Durchlaeufe 266
+Strategie 1 Anzahl Durchlaeufe 513
+Strategie 1 Anzahl Durchlaeufe 272
+Strategie 1 Anzahl Durchlaeufe 327
+Strategie 1 Anzahl Durchlaeufe 373
+Strategie 1 Anzahl Durchlaeufe 312
+Strategie 1 Anzahl Durchlaeufe 257
+Strategie 1 Anzahl Durchlaeufe 445
+Strategie 1 Anzahl Durchlaeufe 200
+Strategie 1 Anzahl Durchlaeufe 258
+Strategie 1 Anzahl Durchlaeufe 360
+Strategie 1 Anzahl Durchlaeufe 459
+Strategie 1 Anzahl Durchlaeufe 370
+Strategie 1 Anzahl Durchlaeufe 392
+Strategie 1 Anzahl Durchlaeufe 419
+Strategie 1 Anzahl Durchlaeufe 275
+Strategie 1 Anzahl Durchlaeufe 228

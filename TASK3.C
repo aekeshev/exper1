@@ -13,7 +13,7 @@
 namespace TASK3{
 
 void demoTask3(){
-	//TASK3::World w(10,10,1,2,3,4);
+
 	TASK3::World w;
 	int x,y;
 	TASK3::ShootResult res;
@@ -29,38 +29,7 @@ void demoTask3(){
 
 }
 
-void Versuch1(){
-	//TASK3::World w(10,10,1,2,3,4);
-		TASK3::World w;
-		int x,y;
-		int b[10][10];
-		TASK3::ShootResult res;
 
-		do{
-			w.printBoard();
-			x = (rand() % 10)+1;
-			y =( rand() % 10) +1;
-			res = w.shoot(x,y);
-			cout << "shoot: (" << x << ", " << y << ") --> " << res << endl;
-		}while(res != TASK3::GAME_OVER);
-		w.printBoard();
-}
-/*
-void Versuch2(){
-	TASK3::World w;
-			int x,y;
-
-			TASK3::ShootResult res;
-
-			do{
-				w.printBoard();
-
-				res = w.shoot(x,y);
-				cout << "shoot: (" << x << ", " << y << ") --> " << res << endl;
-			}while(res != TASK3::GAME_OVER);
-			w.printBoard();
-}
-*/
 World::World(int maxX, int maxY, int nmbFiver, int nmbFourer, int nmbThreer, int nmbTwoer){
 	if(maxX < 10){
 		maxX_ = 10;
